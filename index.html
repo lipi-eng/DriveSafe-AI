@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Violation Warning System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-shield-alt"></i> Pre-Violation Warning System</h1>
+            <div class="control-panel">
+                <button id="startBtn" class="btn btn-success">
+                    <i class="fas fa-play"></i> Start Monitoring
+                </button>
+                <button id="stopBtn" class="btn btn-danger" disabled>
+                    <i class="fas fa-stop"></i> Stop Monitoring
+                </button>
+                <div class="status-indicator">
+                    <span id="statusText">Stopped</span>
+                    <div id="statusLight" class="status-light stopped"></div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Real-time Monitoring Dashboard -->
+            <section class="monitoring-section">
+                <h2><i class="fas fa-chart-line"></i> Real-time Monitoring</h2>
+                <div class="parameters-grid" id="parametersGrid">
+                    <!-- Parameters will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Alerts Section -->
+            <section class="alerts-section">
+                <div class="alerts-header">
+                    <h2><i class="fas fa-exclamation-triangle"></i> Active Alerts</h2>
+                    <div class="alert-counters">
+                        <span class="counter warning-counter">
+                            <i class="fas fa-exclamation-circle"></i>
+                            Warnings: <span id="warningCount">0</span>
+                        </span>
+                        <span class="counter violation-counter">
+                            <i class="fas fa-times-circle"></i>
+                            Violations: <span id="violationCount">0</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="alerts-container" id="alertsContainer">
+                    <div class="no-alerts">
+                        <i class="fas fa-check-circle"></i>
+                        <p>No active alerts</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section class="settings-section">
+                <h2><i class="fas fa-cog"></i> Threshold Settings</h2>
+                <div class="settings-grid" id="settingsGrid">
+                    <!-- Settings will be populated by JavaScript -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Alert Modal -->
+    <div id="alertModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Alert</h3>
+                <span class="close" id="closeModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="modalMessage"></p>
+                <div class="modal-details">
+                    <div class="detail-item">
+                        <strong>Parameter:</strong> <span id="modalParameter"></span>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Current Value:</strong> <span id="modalCurrentValue"></span>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Limit:</strong> <span id="modalLimit"></span>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Time:</strong> <span id="modalTime"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="acknowledgeBtn" class="btn btn-primary">Acknowledge</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
